@@ -1,0 +1,6 @@
+#!/bin/sh
+
+(docker volume inspect wocker-userdata || docker volume create wocker-userdata) | cat 2>&1 /dev/null
+
+docker build --build-arg USERNAME=$USER --build-arg USER_UID=$(id -u) --build-arg USER_GID=$(id -g) -t wocker $@ .
+

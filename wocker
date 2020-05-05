@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker run -it -v wocker-userdata:/home/$USER/.wocker -v $(pwd):/home/$USER/work -w /home/$USER/work $@ wocker
